@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#1A1D27"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top row: icon, name, switch -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Emoji icon background -->
+            <TextView
+                android:id="@+id/tvIcon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:text="💡"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:background="@drawable/bg_toggle_icon"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvToggleName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toggle Name"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvVoiceKeywords"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='Say: "turn on wifi"'
+                    android:textColor="#8A8F9E"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:thumbTint="#FFFFFF"
+                app:trackTint="@color/switch_track_color"/>
+        </LinearLayout>
+
+        <!-- Command hint row -->
+        <LinearLayout
+            android:id="@+id/llCommandHints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/tvOnCommand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ON: &quot;turn on&quot;"
+                android:textColor="#4CAF50"
+                android:textSize="11sp"
+                android:background="@drawable/bg_command_chip_on"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvOffCommand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="OFF: &quot;turn off&quot;"
+                android:textColor="#F44336"
+                android:textSize="11sp"
+                android:background="@drawable/bg_command_chip_off"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:gravity="center"/>
+
+            <ImageButton
+                android:id="@+id/btnEditToggle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_edit"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginStart="8dp"
+                android:tint="#8A8F9E"
+                android:contentDescription="Edit toggle"/>
+
+            <ImageButton
+                android:id="@+id/btnDeleteToggle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_delete"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginStart="4dp"
+                android:tint="#F44336"
+                android:contentDescription="Delete toggle"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
