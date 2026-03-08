@@ -1,9 +1,8 @@
 name: Build Debug APK
-
 on:
   push:
     branches: [ master ]
-  workflow_dispatch:   # lets you trigger a build manually from GitHub's website
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,6 +18,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Download Gradle wrapper jar
+        run: |
+          mkdir -p gradle/wrapper
+          curl -o gradle/wrapper/gradle-wrapper.jar https://github.com/gradle/gradle/raw/v8.2.0/gradle/wrapper/gradle-wrapper.jar
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
@@ -28,9 +32,22 @@ jobs:
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
 
-      - name: Upload APK as artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: VoiceToggleApp-debug
           path: app/build/outputs/apk/debug/app-debug.apk
           retention-days: 7
+eof
+E0F
+
+git add .github/workflows/build.yml
+
+
+
+
+
+
+
+ls
+
